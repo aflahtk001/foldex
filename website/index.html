@@ -361,8 +361,8 @@
 
   <!-- Script to dynamically link download buttons to GitHub Release -->
   <script>
-    // Config: When you push to GitHub, update your username and repo here
-    const GITHUB_USERNAME = 'YOUR_GITHUB_USERNAME'; // e.g. 'aflah'
+    // Config: Connected to your GitHub Release
+    const GITHUB_USERNAME = 'aflahtk001';
     const GITHUB_REPO = 'foldex';
     const VERSION = '1.0.0';
 
@@ -375,20 +375,10 @@
       const ctaBtn = document.getElementById('ctaDownloadBtn');
       const ctaPort = document.getElementById('ctaPortableBtn');
 
-      if (GITHUB_USERNAME === 'YOUR_GITHUB_USERNAME') {
-        // Fallback alert until username is set
-        const showInstruction = (e) => {
-          e.preventDefault();
-          alert('To download: update the GITHUB_USERNAME in website/index.html to your GitHub username after creating your release!');
-        };
-        heroBtn.addEventListener('click', showInstruction);
-        ctaBtn.addEventListener('click', showInstruction);
-      } else {
-        heroBtn.href = installerUrl;
-        heroPort.href = portableUrl;
-        ctaBtn.href = installerUrl;
-        ctaPort.href = portableUrl;
-      }
+      heroBtn.href = installerUrl;
+      heroPort.href = portableUrl;
+      ctaBtn.href = installerUrl;
+      ctaPort.href = portableUrl;
     };
     setupLinks();
   </script>
