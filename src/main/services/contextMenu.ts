@@ -28,12 +28,12 @@ export async function registerContextMenu(): Promise<boolean> {
     const iconValue = exePath;
 
     // Register for all files
-    await execAsync(`reg add "${REG_KEY_ALL}" /ve /d "Convert or Compress" /f`);
+    await execAsync(`reg add "${REG_KEY_ALL}" /ve /d "Convert or Compress with Foldex" /f`);
     await execAsync(`reg add "${REG_KEY_ALL}" /v "Icon" /d "${iconValue}" /f`);
     await execAsync(`reg add "${REG_KEY_ALL}\\command" /ve /d "${commandValue}" /f`);
 
     // Register for directories
-    await execAsync(`reg add "${REG_KEY_DIR}" /ve /d "Convert or Compress" /f`);
+    await execAsync(`reg add "${REG_KEY_DIR}" /ve /d "Convert or Compress with Foldex" /f`);
     await execAsync(`reg add "${REG_KEY_DIR}" /v "Icon" /d "${iconValue}" /f`);
     await execAsync(`reg add "${REG_KEY_DIR}\\command" /ve /d "${commandValue}" /f`);
 

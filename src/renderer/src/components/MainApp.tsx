@@ -78,10 +78,10 @@ export const MainApp: React.FC = () => {
               className="w-8 h-8 rounded-xl object-contain shadow-subtle border border-gray-100"
             />
             <div>
-              <h1 className="text-xs font-bold text-gray-900 tracking-tight leading-tight">
-                File Converter
+              <h1 className="text-sm font-black text-gray-900 tracking-tight leading-tight">
+                Foldex
               </h1>
-              <span className="text-[10px] text-gray-500 font-medium">& Compressor</span>
+              <span className="text-[10px] text-gray-500 font-medium">Converter & Compressor</span>
             </div>
           </div>
 

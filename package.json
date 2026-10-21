@@ -1,10 +1,10 @@
 {
-  "name": "file-converter-compressor",
-  "productName": "File Converter & Compressor",
+  "name": "foldex",
+  "productName": "Foldex",
   "version": "1.0.0",
-  "description": "Windows desktop application for fast file conversion and compression directly from File Explorer",
+  "description": "Foldex - Fast file conversion and compression directly from Windows File Explorer",
   "main": "dist-electron/main/index.js",
-  "author": "Antigravity",
+  "author": "Foldex",
   "license": "MIT",
   "scripts": {
     "build:renderer": "vite build",
@@ -14,8 +14,8 @@
     "package": "npm run build && electron-builder --win"
   },
   "build": {
-    "appId": "com.converter.compressor",
-    "productName": "File Converter & Compressor",
+    "appId": "com.foldex.app",
+    "productName": "Foldex",
     "directories": {
       "output": "release"
     },

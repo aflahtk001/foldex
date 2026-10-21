@@ -45,7 +45,7 @@ export function createMainWindow(): BrowserWindow {
     height: 720,
     minWidth: 840,
     minHeight: 580,
-    title: 'File Converter & Compressor',
+    title: 'Foldex',
     backgroundColor: '#FFFFFF',
     show: false,
     webPreferences: {

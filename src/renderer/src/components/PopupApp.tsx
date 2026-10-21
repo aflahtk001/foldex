@@ -239,7 +239,7 @@ export const PopupApp: React.FC = () => {
             className="w-5 h-5 rounded-md object-contain"
           />
           <span className="text-xs font-semibold text-gray-800">
-            {operationTab === 'compress' ? 'Quick Compression' : 'Quick Conversion'}
+            Foldex • {operationTab === 'compress' ? 'Compress' : 'Convert'}
           </span>
           <span className="text-[10px] px-1.5 py-0.5 rounded bg-gray-100 text-gray-600 font-mono">
             {operationTab === 'compress' ? 'Shift+C' : 'Shift+V'}
