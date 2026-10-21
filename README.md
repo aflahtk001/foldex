@@ -1,6 +1,6 @@
-# File Converter & Compressor (Windows Desktop Application)
+# Foldex (Windows Desktop Application)
 
-A modern, fast Windows desktop application built with Electron, React, TypeScript, Vite, Tailwind CSS, Sharp, and PDF.js / pdf-lib. Allows users to convert and compress files directly from Windows File Explorer using keyboard shortcuts and a compact contextual popup.
+Foldex is a modern, fast Windows desktop application built with Electron, React, TypeScript, Vite, Tailwind CSS, Sharp, and PDF.js / pdf-lib. Allows users to convert and compress files directly from Windows File Explorer using keyboard shortcuts (`Shift+C` to compress, `Shift+V` to convert) and a compact contextual popup.
 
 ---
 

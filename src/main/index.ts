@@ -137,11 +137,11 @@ async function createTrayIcon() {
 
     const trayImage = nativeImage.createFromBuffer(iconBuffer);
     tray = new Tray(trayImage);
-    tray.setToolTip('File Converter & Compressor');
+    tray.setToolTip('Foldex');
 
     const contextMenu = Menu.buildFromTemplate([
       {
-        label: 'Open Main Window',
+        label: 'Open Foldex',
         click: () => {
           createMainWindow();
         },
