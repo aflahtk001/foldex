@@ -6,12 +6,36 @@
   <title>Foldex — Fast File Converter & Compressor for Windows</title>
   <meta name="description" content="Convert and compress files directly from Windows File Explorer with keyboard shortcuts. Fast, private, and 100% offline." />
   <link rel="icon" type="image/png" href="./assets/logo.png" />
+  <!-- Apple SF Pro Font -->
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/sf-pro-display" />
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
+          fontFamily: {
+            sans: [
+              '-apple-system',
+              'BlinkMacSystemFont',
+              '"SF Pro Display"',
+              '"SF Pro Text"',
+              '"SF Pro"',
+              '"Helvetica Neue"',
+              'Helvetica',
+              'Arial',
+              'sans-serif'
+            ],
+            mono: [
+              '"SF Mono"',
+              'SFMono-Regular',
+              'ui-monospace',
+              'Menlo',
+              'Monaco',
+              'Consolas',
+              'monospace'
+            ]
+          },
           colors: {
             primary: {
               DEFAULT: '#F5EFE1',
@@ -27,8 +51,48 @@
     }
   </script>
   <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    @import url('https://fonts.cdnfonts.com/css/sf-pro-display');
+
+    html, body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      letter-spacing: -0.012em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      letter-spacing: -0.022em;
+    }
+
+    code, kbd, pre {
+      font-family: "SF Mono", SFMono-Regular, ui-monospace, Menlo, Monaco, Consolas, monospace;
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marquee 32s linear infinite;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    details > summary::-webkit-details-marker,
+    details > summary::marker {
+      display: none;
+      content: "";
     }
   </style>
 </head>
@@ -45,10 +109,10 @@
       </div>
 
       <nav class="hidden md:flex items-center space-x-7 text-sm font-medium text-gray-600">
-        <a href="#features" class="hover:text-gray-900 transition-colors">Features</a>
+        <a href="#how-to-use" class="hover:text-gray-900 transition-colors">How to Use</a>
         <a href="#shortcuts" class="hover:text-gray-900 transition-colors">Shortcuts</a>
-        <a href="#download" class="hover:text-gray-900 transition-colors">Download</a>
-        <a href="#about" class="hover:text-gray-900 transition-colors">Developer & Repo</a>
+        <a href="#features" class="hover:text-gray-900 transition-colors">Features</a>
+        <a href="#about" class="hover:text-gray-900 transition-colors">Developer</a>
         <a href="#faq" class="hover:text-gray-900 transition-colors">FAQ</a>
       </nav>
 
@@ -67,7 +131,7 @@
         </a>
         <a
           id="navDownloadBtn"
-          href="#download"
+          href="#"
           class="px-4 py-2 rounded-xl text-xs font-bold border transition-all shadow-sm hover:shadow"
           style="background-color: #F5EFE1; color: #3E2E14; border-color: #E7DBBF;"
         >
@@ -183,6 +247,83 @@
     </div>
   </section>
 
+  <!-- How to Use Section -->
+  <section id="how-to-use" class="py-20 max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-semibold mb-3 border" style="background-color: #FAF6ED; border-color: #E7DBBF; color: #7A602F;">
+        <span>Simple 3-Step Workflow</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-950 tracking-tight mb-3">
+        How to Use Foldex
+      </h2>
+      <p class="text-sm text-gray-500 max-w-xl mx-auto">
+        No heavy software to launch. No file upload limits. Convert and compress directly where your files live.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Step 1 -->
+      <div class="p-8 rounded-3xl bg-white border border-gray-100 shadow-xs hover:border-gray-200 transition-all flex flex-col justify-between">
+        <div>
+          <div class="mb-6">
+            <span class="inline-flex items-center justify-center w-9 h-9 rounded-2xl text-xs font-bold text-amber-900 border" style="background-color: #FAF6ED; border-color: #E7DBBF;">
+              01
+            </span>
+          </div>
+          <h3 class="text-base font-bold text-gray-900 mb-2">Select Your Files</h3>
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">
+            Highlight any image or PDF directly in Windows File Explorer. Works seamlessly with single files or bulk multiple-file selections.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-gray-50">
+          <span class="inline-flex items-center text-[11px] font-semibold text-gray-500">
+            Supports JPG, PNG, WEBP, PDF &amp; more
+          </span>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="p-8 rounded-3xl bg-white border border-gray-100 shadow-xs hover:border-gray-200 transition-all flex flex-col justify-between">
+        <div>
+          <div class="mb-6">
+            <span class="inline-flex items-center justify-center w-9 h-9 rounded-2xl text-xs font-bold text-amber-900 border" style="background-color: #FAF6ED; border-color: #E7DBBF;">
+              02
+            </span>
+          </div>
+          <h3 class="text-base font-bold text-gray-900 mb-2">Press Shortcut or Right-Click</h3>
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">
+            Press <kbd class="font-mono bg-gray-50 px-1.5 py-0.5 border rounded text-gray-900 font-semibold text-[11px]">Shift+C</kbd> to compress, or <kbd class="font-mono bg-gray-50 px-1.5 py-0.5 border rounded text-gray-900 font-semibold text-[11px]">Shift+V</kbd> to convert. You can also right-click and pick Foldex from the context menu.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-gray-50">
+          <span class="inline-flex items-center text-[11px] font-semibold text-gray-500">
+            Instant popup appears at your cursor
+          </span>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="p-8 rounded-3xl bg-white border border-gray-100 shadow-xs hover:border-gray-200 transition-all flex flex-col justify-between">
+        <div>
+          <div class="mb-6">
+            <span class="inline-flex items-center justify-center w-9 h-9 rounded-2xl text-xs font-bold text-amber-900 border" style="background-color: #FAF6ED; border-color: #E7DBBF;">
+              03
+            </span>
+          </div>
+          <h3 class="text-base font-bold text-gray-900 mb-2">Configure &amp; Process</h3>
+          <p class="text-xs text-gray-600 leading-relaxed mb-4">
+            Select your target format, quality slider, or DPI preset in the compact window. Click process — output files appear instantly beside originals without overwriting.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-gray-50">
+          <span class="inline-flex items-center text-[11px] font-semibold text-emerald-700">
+            100% Offline &amp; Non-destructive
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Keyboard Shortcuts Section -->
   <section id="shortcuts" class="py-16 bg-white border-y border-gray-100">
     <div class="max-w-5xl mx-auto px-6">
@@ -231,116 +372,206 @@
     </div>
   </section>
 
-  <!-- Features Grid -->
-  <section id="features" class="py-20 max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl font-extrabold text-gray-950 tracking-tight mb-3">
-        Built for Speed, Quality & Privacy
+  <!-- Features Section (Auto-moving Single Row) -->
+  <section id="features" class="py-20 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 text-center mb-12">
+      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-semibold mb-3 border" style="background-color: #FAF6ED; border-color: #E7DBBF; color: #7A602F;">
+        <span>Built for Speed, Quality &amp; Privacy</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-950 tracking-tight mb-3">
+        Engineered for Windows File Explorer
       </h2>
       <p class="text-sm text-gray-500 max-w-xl mx-auto">
-        Everything you need to convert and compress your media without compromising on security.
+        Everything you need to convert and compress your media without compromising on privacy or performance.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="p-6 rounded-2xl bg-white border border-gray-100 shadow-sm">
-        <div class="w-10 h-10 rounded-xl mb-4 flex items-center justify-center font-bold text-lg" style="background-color: #FAF6ED; color: #7A602F;">
-          📄
-        </div>
-        <h4 class="text-base font-bold text-gray-900 mb-2">Images to PDF</h4>
-        <p class="text-xs text-gray-600 leading-relaxed">
-          Combine JPG, PNG, WEBP, BMP, or TIFF images into a single clean PDF document, or create separate PDFs with custom page sizes (A4, Letter, Fit) and margins.
-        </p>
-      </div>
+    <!-- Infinite Auto-moving Row with Fade Masks -->
+    <div class="relative w-full overflow-hidden">
+      <!-- Edge Fades -->
+      <div class="pointer-events-none absolute inset-y-0 left-0 w-20 sm:w-32 bg-gradient-to-r from-[#FDFCF9] to-transparent z-10"></div>
+      <div class="pointer-events-none absolute inset-y-0 right-0 w-20 sm:w-32 bg-gradient-to-l from-[#FDFCF9] to-transparent z-10"></div>
 
-      <div class="p-6 rounded-2xl bg-white border border-gray-100 shadow-sm">
-        <div class="w-10 h-10 rounded-xl mb-4 flex items-center justify-center font-bold text-lg" style="background-color: #FAF6ED; color: #7A602F;">
-          🖼️
-        </div>
-        <h4 class="text-base font-bold text-gray-900 mb-2">PDF to Crisp Images</h4>
-        <p class="text-xs text-gray-600 leading-relaxed">
-          Extract pages from any PDF document into high-resolution PNG, JPG, or WEBP with full DPI rendering control (72, 150, 300 DPI) and page range selection.
-        </p>
-      </div>
-
-      <div class="p-6 rounded-2xl bg-white border border-gray-100 shadow-sm">
-        <div class="w-10 h-10 rounded-xl mb-4 flex items-center justify-center font-bold text-lg" style="background-color: #FAF6ED; color: #7A602F;">
-          🔒
-        </div>
-        <h4 class="text-base font-bold text-gray-900 mb-2">100% Local & Private</h4>
-        <p class="text-xs text-gray-600 leading-relaxed">
-          Your files never leave your computer. Foldex processes all documents locally using native high-speed engines. Zero cloud servers, zero tracking.
-        </p>
-      </div>
-
-      <div class="p-6 rounded-2xl bg-white border border-gray-100 shadow-sm">
-        <div class="w-10 h-10 rounded-xl mb-4 flex items-center justify-center font-bold text-lg" style="background-color: #FAF6ED; color: #7A602F;">
-          ⚡
-        </div>
-        <h4 class="text-base font-bold text-gray-900 mb-2">Smart Compression</h4>
-        <p class="text-xs text-gray-600 leading-relaxed">
-          Three optimized presets (Low, Balanced, High) plus advanced quality sliders, max width/height resizing, and EXIF metadata stripping.
-        </p>
-      </div>
-
-      <div class="p-6 rounded-2xl bg-white border border-gray-100 shadow-sm">
-        <div class="w-10 h-10 rounded-xl mb-4 flex items-center justify-center font-bold text-lg" style="background-color: #FAF6ED; color: #7A602F;">
-          🖱️
-        </div>
-        <h4 class="text-base font-bold text-gray-900 mb-2">Explorer Context Menu</h4>
-        <p class="text-xs text-gray-600 leading-relaxed">
-          Right-click any file or directory in Windows File Explorer and choose <strong>"Convert or Compress with Foldex"</strong> for immediate access.
-        </p>
-      </div>
-
-      <div class="p-6 rounded-2xl bg-white border border-gray-100 shadow-sm">
-        <div class="w-10 h-10 rounded-xl mb-4 flex items-center justify-center font-bold text-lg" style="background-color: #FAF6ED; color: #7A602F;">
-          🛡️
-        </div>
-        <h4 class="text-base font-bold text-gray-900 mb-2">Safe By Default</h4>
-        <p class="text-xs text-gray-600 leading-relaxed">
-          Never overwrites your original files. Output files are placed alongside the originals or in a custom folder with automated collision renaming.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Download & SmartScreen Notice -->
-  <section id="download" class="py-16 bg-[#FAF8F3] border-t border-gray-200">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-3xl font-extrabold text-gray-950 mb-3">Get Foldex for Windows</h2>
-      <p class="text-sm text-gray-500 mb-8">Free, modern desktop file utility. Compatible with Windows 10 & 11.</p>
-
-      <div class="inline-flex flex-col sm:flex-row items-center gap-4 mb-10">
-        <a
-          id="ctaDownloadBtn"
-          href="#"
-          class="px-8 py-4 rounded-2xl text-base font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center space-x-3 cursor-pointer"
-          style="background-color: #F5EFE1; color: #2B200C; border: 1.5px solid #D5C095;"
-        >
-          <svg class="w-5 h-5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
-          </svg>
-          <span>Download Installer (v1.0.0)</span>
-        </a>
-
-        <a
-          id="ctaPortableBtn"
-          href="#"
-          class="px-6 py-4 rounded-2xl text-sm font-semibold bg-white border border-gray-200 text-gray-700 hover:bg-gray-50 transition-all shadow-xs"
-        >
-          Download Portable (.exe)
-        </a>
-      </div>
-
-      <!-- SmartScreen Helper Card -->
-      <div class="max-w-xl mx-auto p-5 rounded-2xl bg-white border border-amber-200/80 shadow-xs text-left">
-        <div class="flex items-start space-x-3">
-          <div class="text-amber-600 font-bold text-base mt-0.5">ℹ️</div>
+      <!-- Scrolling Track -->
+      <div class="marquee-track flex gap-6 py-4">
+        <!-- Set 1 (6 Cards) -->
+        <div class="w-[300px] sm:w-[340px] shrink-0 p-6 rounded-3xl bg-white border border-gray-100 shadow-xs hover:border-gray-200 hover:shadow-md transition-all flex flex-col justify-between">
           <div>
-            <h5 class="text-xs font-bold text-gray-900 mb-1">First-time Windows Installation Note</h5>
+            <div class="w-10 h-10 rounded-2xl mb-4 flex items-center justify-center border shadow-xs" style="background-color: #FAF6ED; border-color: #E7DBBF;">
+              <svg class="w-5 h-5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 3.5V9h5.5"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-6 4h4"/>
+              </svg>
+            </div>
+            <h4 class="text-base font-bold text-gray-900 mb-2">Images to PDF</h4>
             <p class="text-xs text-gray-600 leading-relaxed">
-              When launching newly downloaded software, Windows Defender SmartScreen may display a notification saying <em>"Windows protected your PC"</em>. Simply click <strong>"More info"</strong> and then <strong>"Run anyway"</strong>.
+              Combine JPG, PNG, WEBP, BMP, or TIFF images into a single clean PDF document, or create separate PDFs with custom page sizes (A4, Letter, Fit) and margins.
+            </p>
+          </div>
+        </div>
+
+        <div class="w-[300px] sm:w-[340px] shrink-0 p-6 rounded-3xl bg-white border border-gray-100 shadow-xs hover:border-gray-200 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-2xl mb-4 flex items-center justify-center border shadow-xs" style="background-color: #FAF6ED; border-color: #E7DBBF;">
+              <svg class="w-5 h-5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15l-5-5L5 21"/>
+              </svg>
+            </div>
+            <h4 class="text-base font-bold text-gray-900 mb-2">PDF to Crisp Images</h4>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              Extract pages from any PDF document into high-resolution PNG, JPG, or WEBP with full DPI rendering control (72, 150, 300 DPI) and page range selection.
+            </p>
+          </div>
+        </div>
+
+        <div class="w-[300px] sm:w-[340px] shrink-0 p-6 rounded-3xl bg-white border border-gray-100 shadow-xs hover:border-gray-200 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-2xl mb-4 flex items-center justify-center border shadow-xs" style="background-color: #FAF6ED; border-color: #E7DBBF;">
+              <svg class="w-5 h-5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <rect x="5" y="11" width="14" height="10" rx="2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0v4"/>
+                <circle cx="12" cy="16" r="1" fill="currentColor"/>
+              </svg>
+            </div>
+            <h4 class="text-base font-bold text-gray-900 mb-2">100% Local &amp; Private</h4>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              Your files never leave your computer. Foldex processes all documents locally using native high-speed engines. Zero cloud servers, zero tracking.
+            </p>
+          </div>
+        </div>
+
+        <div class="w-[300px] sm:w-[340px] shrink-0 p-6 rounded-3xl bg-white border border-gray-100 shadow-xs hover:border-gray-200 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-2xl mb-4 flex items-center justify-center border shadow-xs" style="background-color: #FAF6ED; border-color: #E7DBBF;">
+              <svg class="w-5 h-5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h4 class="text-base font-bold text-gray-900 mb-2">Smart Compression</h4>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              Three optimized presets (Low, Balanced, High) plus advanced quality sliders, max width/height resizing, and EXIF metadata stripping.
+            </p>
+          </div>
+        </div>
+
+        <div class="w-[300px] sm:w-[340px] shrink-0 p-6 rounded-3xl bg-white border border-gray-100 shadow-xs hover:border-gray-200 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-2xl mb-4 flex items-center justify-center border shadow-xs" style="background-color: #FAF6ED; border-color: #E7DBBF;">
+              <svg class="w-5 h-5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/>
+              </svg>
+            </div>
+            <h4 class="text-base font-bold text-gray-900 mb-2">Explorer Context Menu</h4>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              Right-click any file or directory in Windows File Explorer and choose <strong>"Convert or Compress with Foldex"</strong> for immediate access.
+            </p>
+          </div>
+        </div>
+
+        <div class="w-[300px] sm:w-[340px] shrink-0 p-6 rounded-3xl bg-white border border-gray-100 shadow-xs hover:border-gray-200 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-2xl mb-4 flex items-center justify-center border shadow-xs" style="background-color: #FAF6ED; border-color: #E7DBBF;">
+              <svg class="w-5 h-5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <h4 class="text-base font-bold text-gray-900 mb-2">Safe By Default</h4>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              Never overwrites your original files. Output files are placed alongside the originals or in a custom folder with automated collision renaming.
+            </p>
+          </div>
+        </div>
+
+        <!-- Set 2 (Identical Duplicate for Seamless Infinite Loop) -->
+        <div class="w-[300px] sm:w-[340px] shrink-0 p-6 rounded-3xl bg-white border border-gray-100 shadow-xs hover:border-gray-200 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-2xl mb-4 flex items-center justify-center border shadow-xs" style="background-color: #FAF6ED; border-color: #E7DBBF;">
+              <svg class="w-5 h-5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 3.5V9h5.5"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13h6m-6 4h4"/>
+              </svg>
+            </div>
+            <h4 class="text-base font-bold text-gray-900 mb-2">Images to PDF</h4>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              Combine JPG, PNG, WEBP, BMP, or TIFF images into a single clean PDF document, or create separate PDFs with custom page sizes (A4, Letter, Fit) and margins.
+            </p>
+          </div>
+        </div>
+
+        <div class="w-[300px] sm:w-[340px] shrink-0 p-6 rounded-3xl bg-white border border-gray-100 shadow-xs hover:border-gray-200 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-2xl mb-4 flex items-center justify-center border shadow-xs" style="background-color: #FAF6ED; border-color: #E7DBBF;">
+              <svg class="w-5 h-5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15l-5-5L5 21"/>
+              </svg>
+            </div>
+            <h4 class="text-base font-bold text-gray-900 mb-2">PDF to Crisp Images</h4>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              Extract pages from any PDF document into high-resolution PNG, JPG, or WEBP with full DPI rendering control (72, 150, 300 DPI) and page range selection.
+            </p>
+          </div>
+        </div>
+
+        <div class="w-[300px] sm:w-[340px] shrink-0 p-6 rounded-3xl bg-white border border-gray-100 shadow-xs hover:border-gray-200 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-2xl mb-4 flex items-center justify-center border shadow-xs" style="background-color: #FAF6ED; border-color: #E7DBBF;">
+              <svg class="w-5 h-5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <rect x="5" y="11" width="14" height="10" rx="2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0v4"/>
+                <circle cx="12" cy="16" r="1" fill="currentColor"/>
+              </svg>
+            </div>
+            <h4 class="text-base font-bold text-gray-900 mb-2">100% Local &amp; Private</h4>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              Your files never leave your computer. Foldex processes all documents locally using native high-speed engines. Zero cloud servers, zero tracking.
+            </p>
+          </div>
+        </div>
+
+        <div class="w-[300px] sm:w-[340px] shrink-0 p-6 rounded-3xl bg-white border border-gray-100 shadow-xs hover:border-gray-200 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-2xl mb-4 flex items-center justify-center border shadow-xs" style="background-color: #FAF6ED; border-color: #E7DBBF;">
+              <svg class="w-5 h-5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <h4 class="text-base font-bold text-gray-900 mb-2">Smart Compression</h4>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              Three optimized presets (Low, Balanced, High) plus advanced quality sliders, max width/height resizing, and EXIF metadata stripping.
+            </p>
+          </div>
+        </div>
+
+        <div class="w-[300px] sm:w-[340px] shrink-0 p-6 rounded-3xl bg-white border border-gray-100 shadow-xs hover:border-gray-200 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-2xl mb-4 flex items-center justify-center border shadow-xs" style="background-color: #FAF6ED; border-color: #E7DBBF;">
+              <svg class="w-5 h-5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/>
+              </svg>
+            </div>
+            <h4 class="text-base font-bold text-gray-900 mb-2">Explorer Context Menu</h4>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              Right-click any file or directory in Windows File Explorer and choose <strong>"Convert or Compress with Foldex"</strong> for immediate access.
+            </p>
+          </div>
+        </div>
+
+        <div class="w-[300px] sm:w-[340px] shrink-0 p-6 rounded-3xl bg-white border border-gray-100 shadow-xs hover:border-gray-200 hover:shadow-md transition-all flex flex-col justify-between">
+          <div>
+            <div class="w-10 h-10 rounded-2xl mb-4 flex items-center justify-center border shadow-xs" style="background-color: #FAF6ED; border-color: #E7DBBF;">
+              <svg class="w-5 h-5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+            </div>
+            <h4 class="text-base font-bold text-gray-900 mb-2">Safe By Default</h4>
+            <p class="text-xs text-gray-600 leading-relaxed">
+              Never overwrites your original files. Output files are placed alongside the originals or in a custom folder with automated collision renaming.
             </p>
           </div>
         </div>
@@ -348,243 +579,169 @@
     </div>
   </section>
 
-  <!-- Developer & Open Source Section -->
-  <section id="about" class="py-20 max-w-6xl mx-auto px-6">
-    <div class="text-center mb-14">
-      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-semibold mb-3 border" style="background-color: #FAF6ED; border-color: #E7DBBF; color: #7A602F;">
-        <span>Meet the Creator & Open Source</span>
-      </div>
-      <h2 class="text-3xl font-extrabold text-gray-950 tracking-tight mb-3">
-        Built with Transparency & Passion
-      </h2>
-      <p class="text-sm text-gray-500 max-w-xl mx-auto">
-        Foldex is an independent open-source project created to deliver a clean, fast desktop file utility without subscription traps, limits, or cloud tracking.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-      <!-- Left: Developer Profile Card (5 cols) -->
-      <div class="lg:col-span-5 p-8 rounded-3xl bg-white border border-gray-100 shadow-sm flex flex-col justify-between">
-        <div>
-          <div class="flex items-center space-x-4 mb-6">
-            <div class="relative">
-              <img
-                src="https://avatars.githubusercontent.com/u/123810660?v=4"
-                alt="Aflah TK"
-                class="w-16 h-16 rounded-2xl object-cover border-2 shadow-xs"
-                style="border-color: #E7DBBF;"
-              />
-              <span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white" title="Active Developer"></span>
-            </div>
-            <div>
-              <h3 class="text-lg font-bold text-gray-950">Aflah TK</h3>
-              <p class="text-xs font-medium text-amber-800">Creator & Lead Developer</p>
-              <p class="text-[11px] text-gray-400">Kerala, India</p>
-            </div>
-          </div>
-
-          <p class="text-xs text-gray-600 leading-relaxed mb-6">
-            Final Year B.Tech CSE student and Full-Stack Developer. Created Foldex to solve the everyday frustration of waiting on web converters, dealing with file size caps, and risking document privacy online.
-          </p>
-
-          <div class="space-y-3 mb-6">
-            <div class="flex items-center text-xs text-gray-600 space-x-2.5">
-              <span class="w-5 text-center text-gray-400">🎓</span>
-              <span>B.Tech Computer Science & Engineering</span>
-            </div>
-            <div class="flex items-center text-xs text-gray-600 space-x-2.5">
-              <span class="w-5 text-center text-gray-400">💻</span>
-              <span>Full-Stack & Desktop (React, Node.js, Electron, TS)</span>
-            </div>
-            <div class="flex items-center text-xs text-gray-600 space-x-2.5">
-              <span class="w-5 text-center text-gray-400">🚀</span>
-              <span>Building practical, privacy-first software</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Developer Links -->
-        <div class="pt-6 border-t border-gray-100">
-          <div class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-3">Connect with Aflah</div>
-          <div class="flex flex-wrap gap-2">
-            <a
-              href="https://aflahtk001.github.io/portfolio/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border border-gray-200 bg-[#FAF9F5] hover:bg-white text-gray-800 transition-all shadow-xs"
-            >
-              <svg class="w-3.5 h-3.5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
-              </svg>
-              <span>Portfolio</span>
-            </a>
-            <a
-              href="https://github.com/aflahtk001"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border border-gray-200 bg-[#FAF9F5] hover:bg-white text-gray-800 transition-all shadow-xs"
-            >
-              <svg class="w-3.5 h-3.5 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-              </svg>
-              <span>GitHub</span>
-            </a>
-            <a
-              href="https://twitter.com/aflahthorakatil"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border border-gray-200 bg-[#FAF9F5] hover:bg-white text-gray-800 transition-all shadow-xs"
-            >
-              <svg class="w-3.5 h-3.5 text-sky-500" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-              <span>Twitter / X</span>
-            </a>
-            <a
-              href="mailto:aflahthorakkattil@gmail.com"
-              class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border border-gray-200 bg-[#FAF9F5] hover:bg-white text-gray-800 transition-all shadow-xs"
-            >
-              <svg class="w-3.5 h-3.5 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
-              <span>Email</span>
-            </a>
-          </div>
-        </div>
+  <!-- Developer Section -->
+  <section id="about" class="py-12 max-w-4xl mx-auto px-6">
+    <div class="p-6 sm:p-8 rounded-3xl bg-white border border-gray-100 shadow-xs flex flex-col md:flex-row items-center md:items-start gap-6">
+      <!-- Avatar -->
+      <div class="relative shrink-0">
+        <img
+          src="https://avatars.githubusercontent.com/u/123810660?v=4"
+          alt="Aflah TK"
+          class="w-20 h-20 rounded-2xl object-cover border-2 shadow-xs"
+          style="border-color: #E7DBBF;"
+        />
+        <span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-white" title="Active Developer"></span>
       </div>
 
-      <!-- Right: Repository & Open Source Card (7 cols) -->
-      <div class="lg:col-span-7 p-8 rounded-3xl border border-gray-100 bg-[#FAF9F5] flex flex-col justify-between">
-        <div>
-          <div class="flex items-center justify-between flex-wrap gap-2 mb-6">
-            <div class="flex items-center space-x-2.5">
-              <div class="w-8 h-8 rounded-lg bg-gray-900 flex items-center justify-center text-white shadow-xs">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                </svg>
-              </div>
-              <span class="font-mono text-sm font-bold text-gray-900">aflahtk001 / foldex</span>
-            </div>
-
-            <div class="flex items-center space-x-2">
-              <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-100 text-emerald-800">Public Repo</span>
-              <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-blue-100 text-blue-800">MIT License</span>
-            </div>
+      <!-- Content -->
+      <div class="flex-1 text-center md:text-left">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+          <div>
+            <h3 class="text-lg font-bold text-gray-950">Aflah TK</h3>
+            <p class="text-xs font-semibold text-amber-800">
+              Software Developer at <a href="https://quadcubes.com/" target="_blank" rel="noopener noreferrer" class="hover:underline">QuadCubes</a> • Creator of Foldex
+            </p>
           </div>
-
-          <h3 class="text-xl font-extrabold text-gray-950 mb-3">100% Free & Open Source on GitHub</h3>
-          <p class="text-xs text-gray-600 leading-relaxed mb-6">
-            Foldex is completely open for anyone to inspect, modify, fork, and build upon. The entire source code—including the Electron shell, React frontend, PowerShell COM scripts, and packaging configurations—is publicly hosted on GitHub.
-          </p>
-
-          <!-- Repository Specs Grid -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
-            <div class="p-3 bg-white rounded-xl border border-gray-200/80">
-              <div class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Language & Shell</div>
-              <div class="text-xs font-bold text-gray-900 mt-0.5">Electron 31 + TS</div>
-            </div>
-            <div class="p-3 bg-white rounded-xl border border-gray-200/80">
-              <div class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">UI Framework</div>
-              <div class="text-xs font-bold text-gray-900 mt-0.5">React 18 + Tailwind</div>
-            </div>
-            <div class="p-3 bg-white rounded-xl border border-gray-200/80">
-              <div class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Processing Engine</div>
-              <div class="text-xs font-bold text-gray-900 mt-0.5">Sharp + PDF-Lib</div>
-            </div>
-            <div class="p-3 bg-white rounded-xl border border-gray-200/80">
-              <div class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">OS Integration</div>
-              <div class="text-xs font-bold text-gray-900 mt-0.5">Windows Shell COM</div>
-            </div>
-            <div class="p-3 bg-white rounded-xl border border-gray-200/80">
-              <div class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Privacy Model</div>
-              <div class="text-xs font-bold text-emerald-700 mt-0.5">Zero Telemetry</div>
-            </div>
-            <div class="p-3 bg-white rounded-xl border border-gray-200/80">
-              <div class="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Current Release</div>
-              <div class="text-xs font-bold text-amber-900 mt-0.5">v1.0.0 Production</div>
-            </div>
-          </div>
+          <span class="inline-flex items-center self-center md:self-start text-[11px] text-gray-500 bg-[#FAF9F5] border border-gray-200 px-2.5 py-1 rounded-full">
+            📍 Kerala, India
+          </span>
         </div>
 
-        <!-- Action Buttons -->
-        <div class="pt-6 border-t border-gray-200/60 flex flex-wrap gap-3">
-          <a
-            href="https://github.com/aflahtk001/foldex"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="px-4 py-2.5 rounded-xl text-xs font-bold shadow-sm hover:shadow transition-all flex items-center space-x-2"
-            style="background-color: #F5EFE1; color: #3E2E14; border: 1px solid #D5C095;"
-          >
-            <svg class="w-4 h-4 text-amber-800" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-            </svg>
-            <span>Star Repository</span>
-          </a>
+        <p class="text-xs text-gray-600 leading-relaxed mb-4 max-w-2xl">
+          Software Developer at <a href="https://quadcubes.com/" target="_blank" rel="noopener noreferrer" class="font-medium text-amber-800 hover:underline">QuadCubes</a>. B.Tech CSE graduate skilled in MERN, and responsive web development. Passionate about building and learning new technologies.
+        </p>
 
+        <!-- Connect Links -->
+        <div class="flex flex-wrap items-center justify-center md:justify-start gap-2">
           <a
-            href="https://github.com/aflahtk001/foldex/fork"
+            href="https://aflahtk001.github.io/portfolio/"
             target="_blank"
             rel="noopener noreferrer"
-            class="px-4 py-2.5 rounded-xl text-xs font-semibold bg-white border border-gray-200 text-gray-800 hover:bg-gray-50 transition-all flex items-center space-x-2 shadow-xs"
+            class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border border-gray-200 bg-[#FAF9F5] hover:bg-white text-gray-800 transition-all shadow-xs"
           >
-            <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2"/>
+            <svg class="w-3.5 h-3.5 text-amber-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
             </svg>
-            <span>Fork Repo</span>
+            <span>Portfolio</span>
           </a>
-
           <a
-            href="https://github.com/aflahtk001/foldex/issues"
+            href="https://github.com/aflahtk001"
             target="_blank"
             rel="noopener noreferrer"
-            class="px-4 py-2.5 rounded-xl text-xs font-semibold bg-white border border-gray-200 text-gray-800 hover:bg-gray-50 transition-all flex items-center space-x-2 shadow-xs"
+            class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border border-gray-200 bg-[#FAF9F5] hover:bg-white text-gray-800 transition-all shadow-xs"
           >
-            <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+            <svg class="w-3.5 h-3.5 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
             </svg>
-            <span>Issues & Suggestions</span>
+            <span>GitHub</span>
           </a>
-
           <a
-            href="https://github.com/aflahtk001/foldex/releases"
+            href="https://twitter.com/aflahthorakatil"
             target="_blank"
             rel="noopener noreferrer"
-            class="px-4 py-2.5 rounded-xl text-xs font-semibold bg-white border border-gray-200 text-gray-800 hover:bg-gray-50 transition-all flex items-center space-x-2 shadow-xs"
+            class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border border-gray-200 bg-[#FAF9F5] hover:bg-white text-gray-800 transition-all shadow-xs"
           >
-            <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+            <svg class="w-3.5 h-3.5 text-sky-500" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
             </svg>
-            <span>All Releases</span>
+            <span>Twitter / X</span>
+          </a>
+          <a
+            href="mailto:aflahthorakkattil@gmail.com"
+            class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border border-gray-200 bg-[#FAF9F5] hover:bg-white text-gray-800 transition-all shadow-xs"
+          >
+            <svg class="w-3.5 h-3.5 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <span>Email</span>
           </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq" class="py-16 max-w-4xl mx-auto px-6">
-    <h2 class="text-2xl font-bold text-gray-950 mb-8 text-center">Frequently Asked Questions</h2>
-    <div class="space-y-4">
-      <div class="p-5 rounded-2xl bg-white border border-gray-100">
-        <h4 class="text-sm font-bold text-gray-900 mb-1">Does Foldex upload my files to any cloud server?</h4>
-        <p class="text-xs text-gray-600 leading-relaxed">
-          No. Foldex is completely offline. All image compression, PDF creation, and conversions take place strictly on your local computer CPU.
-        </p>
+  <!-- FAQ (Interactive Dropdown Accordion) -->
+  <section id="faq" class="py-20 max-w-3xl mx-auto px-6">
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-semibold mb-3 border" style="background-color: #FAF6ED; border-color: #E7DBBF; color: #7A602F;">
+        <span>Got Questions?</span>
       </div>
+      <h2 class="text-3xl font-extrabold text-gray-950 tracking-tight mb-3">
+        Frequently Asked Questions
+      </h2>
+      <p class="text-sm text-gray-500">
+        Everything you need to know about Foldex and how your files are handled.
+      </p>
+    </div>
 
-      <div class="p-5 rounded-2xl bg-white border border-gray-100">
-        <h4 class="text-sm font-bold text-gray-900 mb-1">Can I customize the keyboard shortcuts?</h4>
-        <p class="text-xs text-gray-600 leading-relaxed">
-          Yes. While the defaults are <kbd class="font-mono bg-gray-50 px-1 border rounded">Shift+C</kbd> for compression and <kbd class="font-mono bg-gray-50 px-1 border rounded">Shift+V</kbd> for conversion, you can change them to any combination inside Foldex Settings.
-        </p>
-      </div>
+    <div class="space-y-3">
+      <!-- Item 1 -->
+      <details open class="group rounded-2xl bg-white border border-gray-100 shadow-xs hover:border-gray-200 transition-all overflow-hidden">
+        <summary class="flex items-center justify-between p-5 cursor-pointer list-none select-none text-left">
+          <span class="text-sm font-bold text-gray-900 group-open:text-amber-900 transition-colors">
+            Does Foldex upload my files to any cloud server?
+          </span>
+          <span class="ml-4 w-7 h-7 rounded-xl bg-gray-50 flex items-center justify-center shrink-0 border border-gray-100 group-open:bg-[#FAF6ED] group-open:border-[#E7DBBF] transition-all">
+            <svg class="w-4 h-4 text-gray-500 group-open:rotate-180 group-open:text-amber-900 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="px-5 pb-5 pt-1 text-xs text-gray-600 leading-relaxed border-t border-gray-50">
+          No. Foldex operates strictly 100% offline. All image processing, compression algorithms, and PDF manipulations execute locally on your machine using your CPU. Zero telemetry, zero uploads, and no network calls.
+        </div>
+      </details>
 
-      <div class="p-5 rounded-2xl bg-white border border-gray-100">
-        <h4 class="text-sm font-bold text-gray-900 mb-1">What formats are supported?</h4>
-        <p class="text-xs text-gray-600 leading-relaxed">
-          Foldex supports JPG, JPEG, PNG, WEBP, BMP, TIFF, and PDF documents.
-        </p>
-      </div>
+      <!-- Item 2 -->
+      <details class="group rounded-2xl bg-white border border-gray-100 shadow-xs hover:border-gray-200 transition-all overflow-hidden">
+        <summary class="flex items-center justify-between p-5 cursor-pointer list-none select-none text-left">
+          <span class="text-sm font-bold text-gray-900 group-open:text-amber-900 transition-colors">
+            Can I customize the keyboard shortcuts?
+          </span>
+          <span class="ml-4 w-7 h-7 rounded-xl bg-gray-50 flex items-center justify-center shrink-0 border border-gray-100 group-open:bg-[#FAF6ED] group-open:border-[#E7DBBF] transition-all">
+            <svg class="w-4 h-4 text-gray-500 group-open:rotate-180 group-open:text-amber-900 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="px-5 pb-5 pt-1 text-xs text-gray-600 leading-relaxed border-t border-gray-50">
+          Yes. While the default shortcuts are <kbd class="font-mono bg-gray-50 px-1.5 py-0.5 border rounded text-gray-900 font-semibold text-[11px]">Shift+C</kbd> for compression and <kbd class="font-mono bg-gray-50 px-1.5 py-0.5 border rounded text-gray-900 font-semibold text-[11px]">Shift+V</kbd> for conversion, you can easily change them to any hotkey combination you like in the Foldex Settings panel.
+        </div>
+      </details>
+
+      <!-- Item 3 -->
+      <details class="group rounded-2xl bg-white border border-gray-100 shadow-xs hover:border-gray-200 transition-all overflow-hidden">
+        <summary class="flex items-center justify-between p-5 cursor-pointer list-none select-none text-left">
+          <span class="text-sm font-bold text-gray-900 group-open:text-amber-900 transition-colors">
+            What file formats are supported?
+          </span>
+          <span class="ml-4 w-7 h-7 rounded-xl bg-gray-50 flex items-center justify-center shrink-0 border border-gray-100 group-open:bg-[#FAF6ED] group-open:border-[#E7DBBF] transition-all">
+            <svg class="w-4 h-4 text-gray-500 group-open:rotate-180 group-open:text-amber-900 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="px-5 pb-5 pt-1 text-xs text-gray-600 leading-relaxed border-t border-gray-50">
+          Foldex provides full multi-format conversion between <strong>JPG, JPEG, PNG, WEBP, BMP, TIFF, and PDF</strong> documents. Transparency is preserved on compatible image formats, and multi-page PDFs can be generated from multiple selected images or split into high-res images at 72, 150, or 300 DPI.
+        </div>
+      </details>
+
+      <!-- Item 4 -->
+      <details class="group rounded-2xl bg-white border border-gray-100 shadow-xs hover:border-gray-200 transition-all overflow-hidden">
+        <summary class="flex items-center justify-between p-5 cursor-pointer list-none select-none text-left">
+          <span class="text-sm font-bold text-gray-900 group-open:text-amber-900 transition-colors">
+            Will Foldex ever overwrite my original files?
+          </span>
+          <span class="ml-4 w-7 h-7 rounded-xl bg-gray-50 flex items-center justify-center shrink-0 border border-gray-100 group-open:bg-[#FAF6ED] group-open:border-[#E7DBBF] transition-all">
+            <svg class="w-4 h-4 text-gray-500 group-open:rotate-180 group-open:text-amber-900 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </span>
+        </summary>
+        <div class="px-5 pb-5 pt-1 text-xs text-gray-600 leading-relaxed border-t border-gray-50">
+          Never. Foldex enforces a non-destructive guarantee. All generated and compressed files are saved alongside your source files with automated numbered collision renaming (e.g., <code class="bg-gray-50 px-1 py-0.5 rounded border">image (1).png</code>) or to an output directory of your choice.
+        </div>
+      </details>
     </div>
   </section>
 
@@ -609,8 +766,9 @@
         <!-- Col 2: Downloads & App -->
         <div class="space-y-2">
           <div class="font-bold text-gray-900 text-xs uppercase tracking-wider mb-2">Software</div>
-          <div><a href="#download" class="hover:text-gray-900 transition-colors">Download Installer</a></div>
-          <div><a href="#download" class="hover:text-gray-900 transition-colors">Download Portable</a></div>
+          <div><a href="https://github.com/aflahtk001/foldex/releases/latest" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 transition-colors">Download Installer</a></div>
+          <div><a href="https://github.com/aflahtk001/foldex/releases/latest" target="_blank" rel="noopener noreferrer" class="hover:text-gray-900 transition-colors">Download Portable</a></div>
+          <div><a href="#how-to-use" class="hover:text-gray-900 transition-colors">How to Use</a></div>
           <div><a href="#shortcuts" class="hover:text-gray-900 transition-colors">Keyboard Shortcuts</a></div>
           <div><a href="#features" class="hover:text-gray-900 transition-colors">Features Overview</a></div>
           <div><a href="#faq" class="hover:text-gray-900 transition-colors">FAQ & Support</a></div>
@@ -664,13 +822,11 @@
     const setupLinks = () => {
       const heroBtn = document.getElementById('heroDownloadBtn');
       const heroPort = document.getElementById('heroPortableBtn');
-      const ctaBtn = document.getElementById('ctaDownloadBtn');
-      const ctaPort = document.getElementById('ctaPortableBtn');
+      const navBtn = document.getElementById('navDownloadBtn');
 
       if (heroBtn) heroBtn.href = installerUrl;
       if (heroPort) heroPort.href = portableUrl;
-      if (ctaBtn) ctaBtn.href = installerUrl;
-      if (ctaPort) ctaPort.href = portableUrl;
+      if (navBtn) navBtn.href = installerUrl;
     };
     setupLinks();
   </script>
